@@ -53,13 +53,34 @@ libroCtrl.editLibro = async (req, res = response) => {
 	const updateLibro = new Libro(req.body);
 	updateLibro._id = req.params.id;
 	try {
-		console.log(updateLibro);
 		await Libro.updateOne({ _id: req.params.id }, updateLibro);
 
 		//* Respuesta
 		res.json({ ok: true, msg: `Se actualizo el libro correctamente` });
 	} catch (error) {
 		res.status(400).json({ ok: false, msg: "Error Libro no encontrado" });
+	}
+};
+
+libroCtrl.getLibrosDestacados = async (req, res = response) => {
+	try {
+		//* 👇 Accion
+		const busqueda = await Libro.find({ destacado: true });
+		console.log(busqueda);
+
+		//* 👇 Respuesta
+		res.json({
+			ok: true,
+			msg: "Operacion exitosa",
+			destacados: busqueda,
+		});
+	} catch (error) {
+		//* 👇 Respuesta
+		res.status(400).json({
+			ok: false,
+			msg: "No se encontro ningun libro",
+			error: error,
+		});
 	}
 };
 
