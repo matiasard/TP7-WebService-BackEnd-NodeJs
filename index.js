@@ -11,6 +11,7 @@ app.use(cors({ origin: "https://localhost:4200" }));
 //* Cargamos el modulo de direccionamiento de rutas
 app.use("/api/agente", require("./routes/agente.route"));
 app.use("/api/libro", require("./routes/libro.route"));
+app.use("/api/transaccion", require("./routes/transaccion.route"));
 
 //* Setting
 app.set("port", process.env.PORT || 3000);
