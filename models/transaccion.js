@@ -6,7 +6,7 @@ const TrasaccionScheme = new Schema({
 	monedaDestino: { type: String, require: true },
 	cantidadDestino: { type: Number, require: true },
 	emailCliente: { type: String, require: true },
-	tasaConversion: { type: Number, require: true },
+	tasaConversion: { type: Number, default: 0 },
 });
 
 //* 📦 Exportacion de Modulo 📦
