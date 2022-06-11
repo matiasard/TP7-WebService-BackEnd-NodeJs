@@ -1,4 +1,4 @@
-const { Schema, model } = requiere("mongoose");
+const { Schema, model } = require("mongoose");
 
 const PersonaSchema = new Schema({
 	apellido: { type: String, required: true },
@@ -7,4 +7,5 @@ const PersonaSchema = new Schema({
 	email: { type: String, require: true },
 });
 
+//* 📦 Exportacion de Modulo 📦
 module.exports = model("Persona", PersonaSchema);
