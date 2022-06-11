@@ -13,6 +13,7 @@ app.use("/api/agente", require("./routes/agente.route"));
 app.use("/api/libro", require("./routes/libro.route"));
 app.use("/api/transaccion", require("./routes/transaccion.route"));
 app.use("/api/persona", require("./routes/persona.route"));
+app.use("/api/pasaje", require("./routes/pasaje.route"));
 
 //* Setting
 app.set("port", process.env.PORT || 3000);
