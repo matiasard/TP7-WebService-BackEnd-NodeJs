@@ -51,7 +51,7 @@ transaccionCtrl.createTransaccion = async (req, res = response) => {
 			transaccion.cantidadDestino = Number(resultConversion);
 		})
 		.catch(function (error) {
-			console.error(error);
+			throw new Error(error.message);
 		});
 	//? ****************************************************************
 
