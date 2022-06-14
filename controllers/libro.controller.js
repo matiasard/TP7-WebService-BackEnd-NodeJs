@@ -66,7 +66,6 @@ libroCtrl.getLibrosDestacados = async (req, res = response) => {
 	try {
 		//* 👇 Accion
 		const busqueda = await Libro.find({ destacado: true });
-		console.log(busqueda);
 
 		//* 👇 Respuesta
 		res.json({

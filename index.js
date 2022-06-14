@@ -6,7 +6,8 @@ const app = express();
 
 //* middlewares
 app.use(express.json());
-app.use(cors({ origin: "https://localhost:4200" }));
+// app.use(cors({ origin: "https://localhost:4200" }));
+app.use(cors({ origin: "http://localhost:4200" }));
 
 //* Cargamos el modulo de direccionamiento de rutas
 app.use("/api/agente", require("./routes/agente.route"));
