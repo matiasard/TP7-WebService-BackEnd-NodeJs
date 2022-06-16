@@ -79,6 +79,21 @@ pasajeCtrl.getPorCategoria = async (req, res = response) => {
 	}
 };
 
+pasajeCtrl.getPasajeById = async (req, res = response) => {
+	const pasaje = await Pasaje.find({ _id: req.params.id }).populate("pasajero");
+	try {
+		res.json({
+			ok: true,
+			result: pasaje,
+		});
+	} catch (error) {
+		res.status(400).json({
+			ok: false,
+			msg: `No se encontro pasaje con id: ${req.params.id}`,
+		});
+	}
+};
+
 //* Delete
 pasajeCtrl.deletePasaje = async (req, res = response) => {
 	console.log(req.params.id);
