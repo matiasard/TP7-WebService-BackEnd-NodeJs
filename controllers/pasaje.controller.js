@@ -1,5 +1,4 @@
 const { response } = require("express");
-const pasaje = require("./../models/pasaje");
 const Pasaje = require("./../models/pasaje");
 const pasajeCtrl = {};
 
@@ -64,7 +63,6 @@ pasajeCtrl.getPorCategoria = async (req, res = response) => {
 	const byCategoria = await Pasaje.find({
 		categoriaPasajero: req.params.categoria,
 	}).populate("pasajero");
-
 	try {
 		res.json({
 			ok: true,
@@ -79,6 +77,7 @@ pasajeCtrl.getPorCategoria = async (req, res = response) => {
 	}
 };
 
+//* Buscar un Pasaje
 pasajeCtrl.getPasajeById = async (req, res = response) => {
 	const pasaje = await Pasaje.find({ _id: req.params.id }).populate("pasajero");
 	try {
